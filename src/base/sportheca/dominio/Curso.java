@@ -1,29 +1,18 @@
 package base.sportheca.dominio;
 
-public class Curso {
+public class Curso extends Conteudo {
 
     //Declaração dos atributos da classe com seus respectivos modificadores de acesso
-    private String titulo;
-    private String descricao;
     private int cargaHoraria;
 
+    //Implementação método Calcular XP (herdado da classe-mãe)
+    @Override
+    public double calcularXP() {
+        //Quando o método for chamado, o XP será multiplicad pela carga horário do curso
+        return XP_PADRAO * cargaHoraria;
+    }
+
     //Criação dos métodos get e set
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
     public int getCargaHoraria() {
         return cargaHoraria;
     }
@@ -37,9 +26,11 @@ public class Curso {
     @Override
     public String toString() {
         return "Curso{" +
-                "titulo='" + titulo + '\'' +
-                ", descricao='" + descricao + '\'' +
+                "titulo='" + getTitulo() + '\'' +
+                ", descricao='" + getDescricao() + '\'' +
                 ", cargaHoraria=" + cargaHoraria +
                 '}';
     }
+
+
 }

@@ -2,30 +2,19 @@ package base.sportheca.dominio;
 
 import java.time.LocalDate;
 
-public class Mentoria {
+public class Mentoria extends Conteudo {
 
     //Declaração atributos da classe
-    private String titulo;
-    private String decricao;
     private LocalDate data;
 
-    //Criação dos métodos get e set
-    public String getTitulo() {
-        return titulo;
+   //Implementação método Calcular XP (herdado da classe-mãe)
+    @Override
+    public double calcularXP() {
+        //Quando uma mentoria for criada e o método for chamado, o XP é acrescido de 20
+        return XP_PADRAO + 20d;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getDecricao() {
-        return decricao;
-    }
-
-    public void setDecricao(String decricao) {
-        this.decricao = decricao;
-    }
-
+    //Getter e setter data
     public LocalDate getData() {
         return data;
     }
@@ -38,9 +27,10 @@ public class Mentoria {
     @Override
     public String toString() {
         return "Mentoria{" +
-                "titulo='" + titulo + '\'' +
-                ", decricao='" + decricao + '\'' +
+                "titulo='" + getTitulo() + '\'' +
+                ", decricao='" + getDescricao() + '\'' +
                 ", data=" + data +
                 '}';
     }
+
 }
